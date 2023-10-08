@@ -54,10 +54,12 @@ class App extends Component {
     });
   };
   componentDidMount() {
-    this.setState({
-      contacts: localStorage.load('phoneBook'),
-      filter: '',
-    });
+    const contacts = localStorage.load('phoneBook');
+    if (contacts) {
+      this.setState({
+        contacts,
+      });
+    }
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     localStorage.save('phoneBook', this.state.contacts);
