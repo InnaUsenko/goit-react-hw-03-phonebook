@@ -56,6 +56,7 @@ class App extends Component {
   componentDidMount() {
     this.setState({
       contacts: localStorage.load('phoneBook'),
+      filter: '',
     });
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
